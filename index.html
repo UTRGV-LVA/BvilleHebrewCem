@@ -31,9 +31,10 @@
         <script src="js/labelgun.min.js"></script>
         <script src="js/labels.js"></script>
         <script src="data/CurbsWallsSidewalks_1.js"></script>
-        <script src="data/TranslationNeeded_2.js"></script>
-        <script src="data/FamilyMarkers_3.js"></script>
-        <script src="data/GraveMarkers_4.js"></script>
+        <script src="data/GPRGrid1_2.js"></script>
+        <script src="data/TranslationNeeded_3.js"></script>
+        <script src="data/FamilyMarkers_4.js"></script>
+        <script src="data/GraveMarkers_5.js"></script>
         <script>
         var map = L.map('map', {
             zoomControl:true, maxZoom:28, minZoom:1
@@ -125,7 +126,7 @@
         });
         bounds_group.addLayer(layer_CurbsWallsSidewalks_1);
         map.addLayer(layer_CurbsWallsSidewalks_1);
-        function pop_TranslationNeeded_2(feature, layer) {
+        function pop_GPRGrid1_2(feature, layer) {
             var popupContent = '<table>\
                     <tr>\
                         <th scope="row">Label</th>\
@@ -139,9 +140,52 @@
             popup.setContent(updatedContent);
         }
 
-        function style_TranslationNeeded_2_0() {
+        function style_GPRGrid1_2_0() {
             return {
-                pane: 'pane_TranslationNeeded_2',
+                pane: 'pane_GPRGrid1_2',
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(130,181,75,1.0)',
+                interactive: true,
+            }
+        }
+        map.createPane('pane_GPRGrid1_2');
+        map.getPane('pane_GPRGrid1_2').style.zIndex = 402;
+        map.getPane('pane_GPRGrid1_2').style['mix-blend-mode'] = 'normal';
+        var layer_GPRGrid1_2 = new L.geoJson(json_GPRGrid1_2, {
+            attribution: '',
+            interactive: true,
+            dataVar: 'json_GPRGrid1_2',
+            layerName: 'layer_GPRGrid1_2',
+            pane: 'pane_GPRGrid1_2',
+            onEachFeature: pop_GPRGrid1_2,
+            style: style_GPRGrid1_2_0,
+        });
+        bounds_group.addLayer(layer_GPRGrid1_2);
+        map.addLayer(layer_GPRGrid1_2);
+        function pop_TranslationNeeded_3(feature, layer) {
+            var popupContent = '<table>\
+                    <tr>\
+                        <th scope="row">Label</th>\
+                        <td>' + (feature.properties['Label'] !== null ? autolinker.link(feature.properties['Label'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                </table>';
+            layer.bindPopup(popupContent, {maxHeight: 400});
+            var popup = layer.getPopup();
+            var content = popup.getContent();
+            var updatedContent = removeEmptyRowsFromPopupContent(content, feature);
+            popup.setContent(updatedContent);
+        }
+
+        function style_TranslationNeeded_3_0() {
+            return {
+                pane: 'pane_TranslationNeeded_3',
                 opacity: 1,
                 color: 'rgba(0,0,0,1.0)',
                 dashArray: '',
@@ -154,21 +198,21 @@
                 interactive: true,
             }
         }
-        map.createPane('pane_TranslationNeeded_2');
-        map.getPane('pane_TranslationNeeded_2').style.zIndex = 402;
-        map.getPane('pane_TranslationNeeded_2').style['mix-blend-mode'] = 'normal';
-        var layer_TranslationNeeded_2 = new L.geoJson(json_TranslationNeeded_2, {
+        map.createPane('pane_TranslationNeeded_3');
+        map.getPane('pane_TranslationNeeded_3').style.zIndex = 403;
+        map.getPane('pane_TranslationNeeded_3').style['mix-blend-mode'] = 'normal';
+        var layer_TranslationNeeded_3 = new L.geoJson(json_TranslationNeeded_3, {
             attribution: '',
             interactive: true,
-            dataVar: 'json_TranslationNeeded_2',
-            layerName: 'layer_TranslationNeeded_2',
-            pane: 'pane_TranslationNeeded_2',
-            onEachFeature: pop_TranslationNeeded_2,
-            style: style_TranslationNeeded_2_0,
+            dataVar: 'json_TranslationNeeded_3',
+            layerName: 'layer_TranslationNeeded_3',
+            pane: 'pane_TranslationNeeded_3',
+            onEachFeature: pop_TranslationNeeded_3,
+            style: style_TranslationNeeded_3_0,
         });
-        bounds_group.addLayer(layer_TranslationNeeded_2);
-        map.addLayer(layer_TranslationNeeded_2);
-        function pop_FamilyMarkers_3(feature, layer) {
+        bounds_group.addLayer(layer_TranslationNeeded_3);
+        map.addLayer(layer_TranslationNeeded_3);
+        function pop_FamilyMarkers_4(feature, layer) {
             var popupContent = '<table>\
                     <tr>\
                         <th scope="row">Label</th>\
@@ -182,9 +226,9 @@
             popup.setContent(updatedContent);
         }
 
-        function style_FamilyMarkers_3_0() {
+        function style_FamilyMarkers_4_0() {
             return {
-                pane: 'pane_FamilyMarkers_3',
+                pane: 'pane_FamilyMarkers_4',
                 opacity: 1,
                 color: 'rgba(35,35,35,1.0)',
                 dashArray: '',
@@ -197,21 +241,21 @@
                 interactive: true,
             }
         }
-        map.createPane('pane_FamilyMarkers_3');
-        map.getPane('pane_FamilyMarkers_3').style.zIndex = 403;
-        map.getPane('pane_FamilyMarkers_3').style['mix-blend-mode'] = 'normal';
-        var layer_FamilyMarkers_3 = new L.geoJson(json_FamilyMarkers_3, {
+        map.createPane('pane_FamilyMarkers_4');
+        map.getPane('pane_FamilyMarkers_4').style.zIndex = 404;
+        map.getPane('pane_FamilyMarkers_4').style['mix-blend-mode'] = 'normal';
+        var layer_FamilyMarkers_4 = new L.geoJson(json_FamilyMarkers_4, {
             attribution: '',
             interactive: true,
-            dataVar: 'json_FamilyMarkers_3',
-            layerName: 'layer_FamilyMarkers_3',
-            pane: 'pane_FamilyMarkers_3',
-            onEachFeature: pop_FamilyMarkers_3,
-            style: style_FamilyMarkers_3_0,
+            dataVar: 'json_FamilyMarkers_4',
+            layerName: 'layer_FamilyMarkers_4',
+            pane: 'pane_FamilyMarkers_4',
+            onEachFeature: pop_FamilyMarkers_4,
+            style: style_FamilyMarkers_4_0,
         });
-        bounds_group.addLayer(layer_FamilyMarkers_3);
-        map.addLayer(layer_FamilyMarkers_3);
-        function pop_GraveMarkers_4(feature, layer) {
+        bounds_group.addLayer(layer_FamilyMarkers_4);
+        map.addLayer(layer_FamilyMarkers_4);
+        function pop_GraveMarkers_5(feature, layer) {
             var popupContent = '<table>\
                     <tr>\
                         <th scope="row">Last Name</th>\
@@ -269,9 +313,9 @@
             popup.setContent(updatedContent);
         }
 
-        function style_GraveMarkers_4_0() {
+        function style_GraveMarkers_5_0() {
             return {
-                pane: 'pane_GraveMarkers_4',
+                pane: 'pane_GraveMarkers_5',
                 opacity: 1,
                 color: 'rgba(35,35,35,1.0)',
                 dashArray: '',
@@ -284,23 +328,33 @@
                 interactive: true,
             }
         }
-        map.createPane('pane_GraveMarkers_4');
-        map.getPane('pane_GraveMarkers_4').style.zIndex = 404;
-        map.getPane('pane_GraveMarkers_4').style['mix-blend-mode'] = 'normal';
-        var layer_GraveMarkers_4 = new L.geoJson(json_GraveMarkers_4, {
+        map.createPane('pane_GraveMarkers_5');
+        map.getPane('pane_GraveMarkers_5').style.zIndex = 405;
+        map.getPane('pane_GraveMarkers_5').style['mix-blend-mode'] = 'normal';
+        var layer_GraveMarkers_5 = new L.geoJson(json_GraveMarkers_5, {
             attribution: '',
             interactive: true,
-            dataVar: 'json_GraveMarkers_4',
-            layerName: 'layer_GraveMarkers_4',
-            pane: 'pane_GraveMarkers_4',
-            onEachFeature: pop_GraveMarkers_4,
-            style: style_GraveMarkers_4_0,
+            dataVar: 'json_GraveMarkers_5',
+            layerName: 'layer_GraveMarkers_5',
+            pane: 'pane_GraveMarkers_5',
+            onEachFeature: pop_GraveMarkers_5,
+            style: style_GraveMarkers_5_0,
         });
-        bounds_group.addLayer(layer_GraveMarkers_4);
-        map.addLayer(layer_GraveMarkers_4);
+        bounds_group.addLayer(layer_GraveMarkers_5);
+        map.addLayer(layer_GraveMarkers_5);
         var baseMaps = {};
-        L.control.layers(baseMaps,{'<img src="legend/GraveMarkers_4.png" /> Grave Markers': layer_GraveMarkers_4,'<img src="legend/FamilyMarkers_3.png" /> Family Markers': layer_FamilyMarkers_3,'<img src="legend/TranslationNeeded_2.png" /> Translation Needed': layer_TranslationNeeded_2,'<img src="legend/CurbsWallsSidewalks_1.png" /> Curbs, Walls, & Sidewalks': layer_CurbsWallsSidewalks_1,"Google Satellite": layer_GoogleSatellite_0,}).addTo(map);
+        L.control.layers(baseMaps,{'<img src="legend/GraveMarkers_5.png" /> Grave Markers': layer_GraveMarkers_5,'<img src="legend/FamilyMarkers_4.png" /> Family Markers': layer_FamilyMarkers_4,'<img src="legend/TranslationNeeded_3.png" /> Translation Needed': layer_TranslationNeeded_3,'<img src="legend/GPRGrid1_2.png" /> GPR Grid 1': layer_GPRGrid1_2,'<img src="legend/CurbsWallsSidewalks_1.png" /> Curbs, Walls, & Sidewalks': layer_CurbsWallsSidewalks_1,"Google Satellite": layer_GoogleSatellite_0,}).addTo(map);
         setBounds();
+        resetLabels([layer_GraveMarkers_5]);
+        map.on("zoomend", function(){
+            resetLabels([layer_GraveMarkers_5]);
+        });
+        map.on("layeradd", function(){
+            resetLabels([layer_GraveMarkers_5]);
+        });
+        map.on("layerremove", function(){
+            resetLabels([layer_GraveMarkers_5]);
+        });
         </script>
     </body>
 </html>
